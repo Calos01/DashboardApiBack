@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DashboardApiBack.Migrations
 {
     [DbContext(typeof(DbContextDashboard))]
-    [Migration("20230711005532_CreatingDb")]
+    [Migration("20230712011100_CreatingDb")]
     partial class CreatingDb
     {
         /// <inheritdoc />
@@ -44,6 +44,32 @@ namespace DashboardApiBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "Junior@HOTMAIL.COM",
+                            Name = "Chacalon"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "Scalante@HOTMAIL.COM",
+                            Name = "Chapita"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "Bush@HOTMAIL.COM",
+                            Name = "Jorsh"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Email = "Lissent@HOTMAIL.COM",
+                            Name = "Chicarita"
+                        });
                 });
 
             modelBuilder.Entity("DashboardApiBack.Models.Pedido", b =>
@@ -95,6 +121,26 @@ namespace DashboardApiBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Servers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "La Laland",
+                            Online = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Moonlight",
+                            Online = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Barry",
+                            Online = false
+                        });
                 });
 
             modelBuilder.Entity("DashboardApiBack.Models.Pedido", b =>

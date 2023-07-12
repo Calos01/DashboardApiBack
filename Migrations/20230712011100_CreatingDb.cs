@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DashboardApiBack.Migrations
 {
     /// <inheritdoc />
@@ -60,6 +62,27 @@ namespace DashboardApiBack.Migrations
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "Id", "Email", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Junior@HOTMAIL.COM", "Chacalon" },
+                    { 2, "Scalante@HOTMAIL.COM", "Chapita" },
+                    { 3, "Bush@HOTMAIL.COM", "Jorsh" },
+                    { 4, "Lissent@HOTMAIL.COM", "Chicarita" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Servers",
+                columns: new[] { "Id", "Name", "Online" },
+                values: new object[,]
+                {
+                    { 1, "La Laland", true },
+                    { 2, "Moonlight", true },
+                    { 3, "Barry", false }
                 });
 
             migrationBuilder.CreateIndex(
