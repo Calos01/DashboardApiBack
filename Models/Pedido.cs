@@ -8,5 +8,7 @@
         public DateTime PedRealizado { get; set; }
         public DateTime? PedCompletado { get; set; }
         public string Status { get; set; }
+        public int? Total { get; set;}
+
     }
 }
