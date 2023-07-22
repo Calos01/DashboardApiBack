@@ -20,7 +20,8 @@ namespace DashboardApiBack.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,7 +52,8 @@ namespace DashboardApiBack.Migrations
                     Amount = table.Column<int>(type: "int", nullable: false),
                     PedRealizado = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PedCompletado = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Total = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,13 +68,13 @@ namespace DashboardApiBack.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "Id", "Email", "Name" },
+                columns: new[] { "Id", "Email", "Name", "State" },
                 values: new object[,]
                 {
-                    { 1, "Junior@HOTMAIL.COM", "Chacalon" },
-                    { 2, "Scalante@HOTMAIL.COM", "Chapita" },
-                    { 3, "Bush@HOTMAIL.COM", "Jorsh" },
-                    { 4, "Lissent@HOTMAIL.COM", "Chicarita" }
+                    { 1, "Junior@HOTMAIL.COM", "Chacalon", "Sicaya" },
+                    { 2, "Scalante@HOTMAIL.COM", "Chapita", "Hvca" },
+                    { 3, "Bush@HOTMAIL.COM", "Jorsh", "Cochas" },
+                    { 4, "Lissent@HOTMAIL.COM", "Chicarita", "Lima" }
                 });
 
             migrationBuilder.InsertData(

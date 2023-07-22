@@ -38,6 +38,10 @@ namespace DashboardApiBack.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
@@ -47,25 +51,29 @@ namespace DashboardApiBack.Migrations
                         {
                             Id = 1,
                             Email = "Junior@HOTMAIL.COM",
-                            Name = "Chacalon"
+                            Name = "Chacalon",
+                            State = "Sicaya"
                         },
                         new
                         {
                             Id = 2,
                             Email = "Scalante@HOTMAIL.COM",
-                            Name = "Chapita"
+                            Name = "Chapita",
+                            State = "Hvca"
                         },
                         new
                         {
                             Id = 3,
                             Email = "Bush@HOTMAIL.COM",
-                            Name = "Jorsh"
+                            Name = "Jorsh",
+                            State = "Cochas"
                         },
                         new
                         {
                             Id = 4,
                             Email = "Lissent@HOTMAIL.COM",
-                            Name = "Chicarita"
+                            Name = "Chicarita",
+                            State = "Lima"
                         });
                 });
 
@@ -92,6 +100,9 @@ namespace DashboardApiBack.Migrations
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Total")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
