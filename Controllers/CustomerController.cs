@@ -13,21 +13,23 @@ namespace DashboardApiBack.Controllers
         public CustomerController(DbContextDashboard context)
         {
             _context = context;
-        }
+        }  
+
         [HttpGet]
-        public ActionResult GetCustomer() { 
+        public IActionResult GetCustomer() { 
             var result= _context.Customers.ToList();
             return Ok(result);
         }
+
         [HttpGet("{id}")]
-        public ActionResult GetCustomerForId(int id)
+        public IActionResult GetCustomerForId(int id)
         {
             var result = _context.Customers.Find(id);  
             return Ok(result);
         }
 
         [HttpPost("Añadir")]
-        public ActionResult PostCustomer(Customer customer) { 
+        public IActionResult PostCustomer(Customer customer) { 
             if (customer == null)
             {
                 return BadRequest();
