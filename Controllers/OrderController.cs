@@ -19,13 +19,16 @@ namespace DashboardApiBack.Controllers
         public IActionResult GetOrder() { 
             var orders=_context.Pedidos.Include(x=>x.Customer).ToList();
 
-            var group = orders.GroupBy(y => y.Customer.State).ToList().Select(grp =>new
-            {
-                State= grp.Key,
-                Total= grp.Sum(x=>x.Total)
-            }).OrderByDescending(r=>r.Total).ToList();
-            return Ok(group);
+            
+            return Ok(orders);
         }
 
+        [HttpGet("{page}/{pageSize}")]
+        public IActionResult Get(int page, int pageSize)
+        {
+            // Aplicar paginación a la lista de datos.
+            var paginatedData = _context.Pedidos.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            return Ok(paginatedData);
+        }
     }
 }
