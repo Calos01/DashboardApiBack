@@ -61,8 +61,9 @@ namespace DashboardApiBack.Controllers
         [HttpGet("{page}/{pageSize}")]
         public IActionResult Get(int page, int pageSize)
         {
+            var pedidos=_context.Pedidos.Include(x => x.Customer).ToList();
             // Aplicar paginación a la lista de datos.
-            var paginatedData = _context.Pedidos.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var paginatedData = pedidos.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             return Ok(paginatedData);
         }
 

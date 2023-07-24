@@ -13,6 +13,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DbContextDashboard>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion")));
 
+//CORS
+builder.Services.AddCors(options => options.AddPolicy("AllowWebapp",
+                                    builder => builder.AllowAnyOrigin()
+                                                    .AllowAnyHeader()
+                                                    .AllowAnyMethod()));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowWebapp");
 
 app.UseHttpsRedirection();
 
